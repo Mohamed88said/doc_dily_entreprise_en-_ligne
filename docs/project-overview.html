@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Global - Documentation</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-building"></i>
+                <span>Documentation</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="project-overview.html" class="active">Projet Global</a></li>
+                <li><a href="dily-architecture.html">Architecture Dily</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="doc-page">
+                <div class="doc-header">
+                    <h1>Plateforme de Création d'Entreprises en Ligne</h1>
+                    <p>Documentation complète du projet global : architecture, système de templates, roadmap et guide de développement.</p>
+                </div>
+
+                <div class="doc-content">
+                    <section id="vue-densemble">
+                        <h2>🎯 Vue d'ensemble</h2>
+                        
+                        <h3>Description du Projet</h3>
+                        <p>Cette plateforme permet aux entreprises de créer et gérer leur entreprise virtuelle en ligne. Contrairement aux solutions génériques, notre approche propose des <strong>templates pré-configurés</strong> adaptés à différents secteurs d'activité, permettant une mise en place rapide et personnalisée.</p>
+                        
+                        <h3>Philosophie</h3>
+                        <p><strong>"Comme choisir un bureau déjà aménagé"</strong> : Au lieu de créer une solution générique, nous développons des templates spécifiques par secteur. Les entreprises peuvent :</p>
+                        <ul>
+                            <li><strong>Visiter des démos</strong> de différents types d'entreprises</li>
+                            <li><strong>Choisir le template</strong> qui correspond à leur secteur</li>
+                            <li><strong>Créer leur entreprise</strong> avec la même organisation et fonctionnalités</li>
+                            <li><strong>Demander une personnalisation</strong> si aucun template ne convient</li>
+                        </ul>
+                        
+                        <h3>Objectif Principal</h3>
+                        <p>Permettre à toute entreprise de disposer d'un espace de travail virtuel complet, organisé et adapté à son secteur d'activité, avec toutes les fonctionnalités nécessaires à la gestion quotidienne.</p>
+                    </section>
+
+                    <section id="concept-et-vision">
+                        <h2>💡 Concept et Vision</h2>
+                        
+                        <h3>Le Problème Résolu</h3>
+                        <p>Les entreprises ont besoin d'un espace de travail virtuel, mais :</p>
+                        <ul>
+                            <li>Les solutions génériques ne s'adaptent pas aux besoins spécifiques de chaque secteur</li>
+                            <li>Développer une solution sur mesure coûte cher et prend du temps</li>
+                            <li>Chaque secteur a ses propres processus, bureaux et fonctionnalités</li>
+                        </ul>
+                        
+                        <h3>Notre Solution</h3>
+                        <p>Une plateforme unique avec :</p>
+                        <ol>
+                            <li><strong>Templates pré-configurés</strong> par secteur d'activité</li>
+                            <li><strong>Système de démo</strong> pour visiter virtuellement chaque type d'entreprise</li>
+                            <li><strong>Création rapide</strong> d'entreprise basée sur un template</li>
+                            <li><strong>Personnalisation</strong> possible pour les besoins spécifiques</li>
+                        </ol>
+                        
+                        <h3>Vision Long Terme</h3>
+                        <ul>
+                            <li><strong>Bibliothèque de templates</strong> : De nombreux secteurs représentés (tech, audit, commerce, services, etc.)</li>
+                            <li><strong>Marketplace</strong> : Les entreprises peuvent découvrir et choisir parmi différents templates</li>
+                            <li><strong>Écosystème</strong> : Possibilité d'échanges entre entreprises de la plateforme</li>
+                            <li><strong>Scalabilité</strong> : Architecture permettant d'ajouter facilement de nouveaux templates</li>
+                        </ul>
+                    </section>
+
+                    <section id="architecture-globale">
+                        <h2>🏗️ Architecture Globale</h2>
+                        
+                        <h3>Structure Générale</h3>
+                        <pre><code>┌─────────────────────────────────────────────────────────────┐
+│              PLATEFORME PRINCIPALE                          │
+│         "BusinessHub" ou "WorkSpace Platform"               │
+└─────────────────────────────────────────────────────────────┘
+                            │
+        ┌───────────────────┼───────────────────┐
+        │                   │                   │
+        ▼                   ▼                   ▼
+┌───────────────┐   ┌───────────────┐   ┌───────────────┐
+│  ESPACE HUB   │   │ ESPACE ENTREP │   │ ESPACE CLIENT │
+│ (Marketplace) │   │  (Interne)    │   │  (Public)     │
+│               │   │               │   │               │
+│ - Templates   │   │ - Bureaux     │   │ - Site public │
+│ - Démo        │   │ - Espaces     │   │ - Services    │
+│ - Création    │   │ - Gestion     │   │ - Commandes   │
+└───────────────┘   └───────────────┘   └───────────────┘</code></pre>
+                        
+                        <h3>Composants Principaux</h3>
+                        
+                        <h4>1. Espace Hub (Marketplace)</h4>
+                        <ul>
+                            <li><strong>Liste des templates disponibles</strong> : Tous les types d'entreprises disponibles</li>
+                            <li><strong>Système de démo</strong> : Visite virtuelle de chaque template</li>
+                            <li><strong>Création d'entreprise</strong> : Processus guidé de création</li>
+                            <li><strong>Recherche et filtres</strong> : Trouver le template adapté</li>
+                        </ul>
+                        
+                        <h4>2. Espace Entreprise (Interne)</h4>
+                        <ul>
+                            <li><strong>Bureaux virtuels</strong> : Espaces de travail par rôle</li>
+                            <li><strong>Espaces communs</strong> : Salles de réunion, archives, projets</li>
+                            <li><strong>Gestion complète</strong> : Employés, tâches, projets, finances</li>
+                            <li><strong>Intégrations</strong> : Connexion avec autres plateformes</li>
+                        </ul>
+                        
+                        <h4>3. Espace Client (Public)</h4>
+                        <ul>
+                            <li><strong>Site public</strong> : Vitrine de l'entreprise</li>
+                            <li><strong>Services</strong> : Commandes, réservations, etc.</li>
+                            <li><strong>Interface client</strong> : Espace dédié aux clients</li>
+                        </ul>
+                    </section>
+
+                    <section id="systeme-de-templates">
+                        <h2>🎨 Système de Templates</h2>
+                        
+                        <h3>Concept de Template</h3>
+                        <p>Un <strong>template</strong> est une configuration complète d'entreprise incluant :</p>
+                        <ul>
+                            <li><strong>Bureaux</strong> : Types de bureaux et leurs fonctionnalités</li>
+                            <li><strong>Organisation</strong> : Hiérarchie, rôles, permissions</li>
+                            <li><strong>Espaces</strong> : Salles de réunion, archives, projets</li>
+                            <li><strong>Fonctionnalités</strong> : Outils spécifiques au secteur</li>
+                            <li><strong>Intégrations</strong> : APIs et connexions externes</li>
+                        </ul>
+                        
+                        <h3>Exemples de Templates</h3>
+                        
+                        <h4>Template "Dily" (Développement Logiciels)</h4>
+                        <ul>
+                            <li>Bureaux : CEO, Développeur, Comptable, Gestion Vendeurs, Gestion Achat, Gestion Profs, Gestion Étudiants, Gestion Recruteurs, Gestion Candidats</li>
+                            <li>Secteur : Tech / SaaS / Plateformes digitales</li>
+                            <li>Fonctionnalités : Gestion de projets techniques, intégrations APIs, monitoring</li>
+                        </ul>
+                        
+                        <h4>Template "Audit" (Audit/Comptabilité)</h4>
+                        <ul>
+                            <li>Bureaux : CEO, Auditeur Senior, Auditeur Junior, Gestion Clients</li>
+                            <li>Secteur : Services professionnels / Audit</li>
+                            <li>Fonctionnalités : Gestion de dossiers clients, rapports d'audit, conformité</li>
+                        </ul>
+                        
+                        <h4>Template "Coach Sportif" (Services)</h4>
+                        <ul>
+                            <li>Bureaux : Coach, Secrétaire, Gestion Clients</li>
+                            <li>Secteur : Services / Coaching</li>
+                            <li>Fonctionnalités : Planning, gestion de séances, suivi clients</li>
+                        </ul>
+                    </section>
+
+                    <section id="processus-de-creation">
+                        <h2>🚀 Processus de Création d'Entreprise</h2>
+                        
+                        <h3>Parcours Utilisateur</h3>
+                        
+                        <h4>Étape 1 : Découverte</h4>
+                        <ol>
+                            <li>L'utilisateur arrive sur la plateforme</li>
+                            <li>Il découvre les templates disponibles</li>
+                            <li>Il peut filtrer par secteur, taille, fonctionnalités</li>
+                        </ol>
+                        
+                        <h4>Étape 2 : Démo</h4>
+                        <ol>
+                            <li>Clic sur "Voir la démo" d'un template</li>
+                            <li>Visite virtuelle de l'entreprise type</li>
+                            <li>Exploration des bureaux et fonctionnalités</li>
+                            <li>Compréhension de l'organisation</li>
+                        </ol>
+                        
+                        <h4>Étape 3 : Choix</h4>
+                        <ul>
+                            <li><strong>Option A</strong> : Le template convient → Création directe</li>
+                            <li><strong>Option B</strong> : Le template ne convient pas → Demande de personnalisation</li>
+                        </ul>
+                        
+                        <h4>Étape 4 : Création</h4>
+                        <ol>
+                            <li>Inscription / Connexion</li>
+                            <li>Formulaire de création d'entreprise</li>
+                            <li>Choix du template</li>
+                            <li>Configuration initiale</li>
+                            <li>Activation de l'entreprise</li>
+                        </ol>
+                    </section>
+
+                    <section id="technologies">
+                        <h2>🛠️ Technologies Utilisées</h2>
+                        
+                        <h3>Backend</h3>
+                        <ul>
+                            <li><strong>Django</strong> 4.2+ : Framework web principal</li>
+                            <li><strong>Django REST Framework</strong> : APIs REST</li>
+                            <li><strong>Django Channels</strong> : WebSockets pour temps réel</li>
+                            <li><strong>Celery</strong> : Tâches asynchrones</li>
+                            <li><strong>Redis</strong> : Cache et backend Channels</li>
+                            <li><strong>PostgreSQL</strong> : Base de données principale</li>
+                        </ul>
+                        
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li><strong>Django Templates</strong> : Rendu côté serveur</li>
+                            <li><strong>HTML5/CSS3</strong> : Structure et style</li>
+                            <li><strong>Tailwind CSS</strong> : Framework CSS utilitaire</li>
+                            <li><strong>JavaScript (ES6+)</strong> : Interactivité</li>
+                            <li><strong>WebSockets</strong> : Communication temps réel</li>
+                        </ul>
+                        
+                        <h3>Infrastructure</h3>
+                        <ul>
+                            <li><strong>Docker</strong> : Containerisation</li>
+                            <li><strong>Docker Compose</strong> : Orchestration locale</li>
+                            <li><strong>Nginx</strong> : Serveur web reverse proxy</li>
+                            <li><strong>Gunicorn</strong> : Serveur WSGI</li>
+                            <li><strong>AWS/Azure/VPS</strong> : Hébergement</li>
+                        </ul>
+                    </section>
+
+                    <section id="roadmap">
+                        <h2>🗺️ Roadmap de Développement</h2>
+                        
+                        <h3>Phase 1 : MVP - Template Dily (3-4 mois)</h3>
+                        <ul>
+                            <li><strong>Sprint 1-2</strong> : Fondations (Django, authentification, modèles)</li>
+                            <li><strong>Sprint 3-4</strong> : Template Dily complet</li>
+                            <li><strong>Sprint 5-6</strong> : Fonctionnalités Core</li>
+                            <li><strong>Sprint 7-8</strong> : Polissage et tests</li>
+                        </ul>
+                        
+                        <h3>Phase 2 : Système de Templates (2-3 mois)</h3>
+                        <ul>
+                            <li><strong>Sprint 9-10</strong> : Architecture Templates</li>
+                            <li><strong>Sprint 11-12</strong> : Hub et Démo</li>
+                        </ul>
+                        
+                        <h3>Phase 3 : Deuxième Template (1-2 mois)</h3>
+                        <ul>
+                            <li><strong>Sprint 13-14</strong> : Template Audit</li>
+                        </ul>
+                        
+                        <h3>Phase 4 : Améliorations et Scaling (Continue)</h3>
+                        <ul>
+                            <li>Optimisations de performance</li>
+                            <li>Nouvelles fonctionnalités</li>
+                            <li>Nouveaux templates</li>
+                            <li>Amélioration UX/UI</li>
+                        </ul>
+                    </section>
+
+                    <section id="fonctionnalites-principales">
+                        <h2>⚙️ Fonctionnalités Principales</h2>
+                        
+                        <h3>1. Gestion Multi-Tenant</h3>
+                        <p>Chaque entreprise est isolée :</p>
+                        <ul>
+                            <li><strong>Données séparées</strong> : Chaque entreprise a ses propres données</li>
+                            <li><strong>Sécurité</strong> : Pas d'accès croisé entre entreprises</li>
+                            <li><strong>Personnalisation</strong> : Chaque entreprise peut personnaliser son espace</li>
+                            <li><strong>Scalabilité</strong> : Architecture supportant de nombreuses entreprises</li>
+                        </ul>
+                        
+                        <h3>2. Système de Bureaux</h3>
+                        <h4>Concept</h4>
+                        <p>Chaque employé a accès à un ou plusieurs bureaux selon son rôle :</p>
+                        <ul>
+                            <li><strong>Bureau personnel</strong> : Espace de travail dédié</li>
+                            <li><strong>Fonctionnalités spécifiques</strong> : Outils adaptés au rôle</li>
+                            <li><strong>Vue personnalisée</strong> : Interface adaptée aux besoins</li>
+                        </ul>
+                        
+                        <h4>Types de Bureaux (Exemple Template Dily)</h4>
+                        <ul>
+                            <li>Bureau CEO</li>
+                            <li>Bureau Développeur</li>
+                            <li>Bureau Comptable</li>
+                            <li>Bureau Gestion Vendeurs</li>
+                            <li>Bureau Gestion Achat</li>
+                            <li>Bureau Gestion Profs</li>
+                            <li>Bureau Gestion Étudiants</li>
+                            <li>Bureau Gestion Recruteurs</li>
+                            <li>Bureau Gestion Candidats</li>
+                        </ul>
+                        
+                        <h3>3. Espaces Communs</h3>
+                        <h4>Salle de Réunion</h4>
+                        <ul>
+                            <li>Réunions programmées</li>
+                            <li>Vidéoconférence</li>
+                            <li>Chat en direct</li>
+                            <li>Partage d'écran</li>
+                            <li>Tableau blanc collaboratif</li>
+                            <li>Enregistrement</li>
+                        </ul>
+                        
+                        <h4>Salle d'Archive</h4>
+                        <ul>
+                            <li>Organisation de documents</li>
+                            <li>Recherche avancée</li>
+                            <li>Gestion des permissions</li>
+                            <li>Versions de fichiers</li>
+                            <li>Stockage structuré</li>
+                        </ul>
+                        
+                        <h4>Espace Projets</h4>
+                        <ul>
+                            <li>Gestion de projets</li>
+                            <li>Tâches et suivi</li>
+                            <li>Équipe projet</li>
+                            <li>Communication</li>
+                            <li>Documents partagés</li>
+                        </ul>
+                        
+                        <h4>Espace Communication</h4>
+                        <ul>
+                            <li>Canaux de discussion</li>
+                            <li>Messages directs</li>
+                            <li>Annonces</li>
+                            <li>Partage de fichiers</li>
+                            <li>Notifications</li>
+                        </ul>
+                        
+                        <h3>4. Gestion des Employés</h3>
+                        <ul>
+                            <li><strong>Ajout d'employés</strong> : Invitation par email</li>
+                            <li><strong>Attribution de rôles</strong> : Bureaux et permissions</li>
+                            <li><strong>Hiérarchie</strong> : Organisation de l'entreprise</li>
+                            <li><strong>Statut</strong> : En ligne, occupé, absent</li>
+                            <li><strong>Performance</strong> : Suivi et évaluation</li>
+                        </ul>
+                        
+                        <h3>5. Gestion de Projets et Tâches</h3>
+                        <ul>
+                            <li><strong>Création de projets</strong> : Organisation par équipe</li>
+                            <li><strong>Tâches</strong> : Assignation, suivi, deadlines</li>
+                            <li><strong>Progression</strong> : Suivi en temps réel</li>
+                            <li><strong>Communication</strong> : Discussions et commentaires</li>
+                            <li><strong>Documents</strong> : Partage et collaboration</li>
+                        </ul>
+                        
+                        <h3>6. Gestion Financière</h3>
+                        <ul>
+                            <li><strong>Portefeuille entreprise</strong> : Gestion des fonds</li>
+                            <li><strong>Salaires</strong> : Calcul et paiement</li>
+                            <li><strong>Commissions</strong> : Gestion des commissions (selon template)</li>
+                            <li><strong>Rapports</strong> : Comptabilité et analyses</li>
+                            <li><strong>Transactions</strong> : Historique complet</li>
+                        </ul>
+                        
+                        <h3>7. Intégrations Externes</h3>
+                        <ul>
+                            <li><strong>APIs</strong> : Connexion avec d'autres plateformes</li>
+                            <li><strong>Webhooks</strong> : Réception d'événements</li>
+                            <li><strong>Synchronisation</strong> : Mise à jour automatique</li>
+                            <li><strong>Données</strong> : Import/Export</li>
+                        </ul>
+                    </section>
+
+                    <section id="architecture-technique">
+                        <h2>🏛️ Architecture Technique</h2>
+                        
+                        <h3>Stack Technique</h3>
+                        <h4>Backend</h4>
+                        <ul>
+                            <li><strong>Framework</strong> : Django 4.2+</li>
+                            <li><strong>Base de données</strong> : PostgreSQL</li>
+                            <li><strong>Cache</strong> : Redis</li>
+                            <li><strong>Tâches asynchrones</strong> : Celery</li>
+                            <li><strong>Temps réel</strong> : Django Channels</li>
+                            <li><strong>API</strong> : Django REST Framework</li>
+                        </ul>
+                        
+                        <h4>Frontend</h4>
+                        <ul>
+                            <li><strong>Templates</strong> : Django Templates (HTML)</li>
+                            <li><strong>Styling</strong> : CSS3, Tailwind CSS</li>
+                            <li><strong>Interactivité</strong> : JavaScript (ES6+), AJAX</li>
+                            <li><strong>Temps réel</strong> : WebSockets (via Channels)</li>
+                        </ul>
+                        
+                        <h4>Infrastructure</h4>
+                        <ul>
+                            <li><strong>Containerisation</strong> : Docker</li>
+                            <li><strong>Cloud</strong> : AWS / Azure / VPS</li>
+                            <li><strong>CI/CD</strong> : GitHub Actions</li>
+                            <li><strong>Monitoring</strong> : Prometheus, Grafana</li>
+                        </ul>
+                        
+                        <h3>Structure du Projet</h3>
+                        <pre><code>platform/
+├── config/                 # Configuration Django
+│   ├── settings/
+│   │   ├── base.py
+│   │   ├── development.py
+│   │   └── production.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── apps/
+│   ├── core/               # Fonctionnalités de base
+│   ├── accounts/           # Authentification
+│   ├── templates/          # Système de templates
+│   ├── offices/            # Bureaux
+│   ├── employees/          # Employés
+│   ├── tasks/              # Tâches
+│   ├── meetings/           # Réunions
+│   ├── documents/          # Documents/Archive
+│   ├── communications/     # Communication
+│   ├── finances/           # Finances
+│   └── integrations/       # Intégrations
+│
+├── templates/              # Templates HTML
+├── static/                 # Assets statiques
+├── media/                  # Fichiers uploadés
+├── requirements.txt
+├── Dockerfile
+└── docker-compose.yml</code></pre>
+                        
+                        <h3>Architecture des Templates (Code)</h3>
+                        <h4>Modèle de Données Template</h4>
+                        <pre><code># apps/templates/models.py
+
+class Template(models.Model):
+    """Template d'entreprise"""
+    name = models.CharField(max_length=100)
+    sector = models.CharField(max_length=50)
+    description = models.TextField()
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    # Configuration
+    offices_config = models.JSONField()  # Liste des bureaux
+    spaces_config = models.JSONField()   # Espaces communs
+    permissions_config = models.JSONField()  # Permissions par rôle
+    
+class TemplateModule(models.Model):
+    """Module spécifique d'un template"""
+    template = models.ForeignKey(Template, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    module_type = models.CharField(max_length=50)  # 'office', 'feature', 'integration'
+    config = models.JSONField()  # Configuration du module</code></pre>
+                        
+                        <h4>Service de Duplication</h4>
+                        <pre><code># apps/templates/services.py
+
+class TemplateService:
+    """Service pour créer une entreprise à partir d'un template"""
+    
+    def create_company_from_template(self, template, company_data):
+        # 1. Créer l'entreprise
+        company = Company.objects.create(**company_data)
+        
+        # 2. Créer les bureaux selon le template
+        for office_config in template.offices_config:
+            Office.objects.create(
+                company=company,
+                **office_config
+            )
+        
+        # 3. Créer les espaces communs
+        for space_config in template.spaces_config:
+            Space.objects.create(
+                company=company,
+                **space_config
+            )
+        
+        # 4. Configurer les permissions
+        self._setup_permissions(company, template)
+        
+        return company</code></pre>
+                    </section>
+
+                    <section id="modele-de-donnees">
+                        <h2>📊 Modèle de Données</h2>
+                        
+                        <h3>Entités Principales</h3>
+                        <h4>Company (Entreprise)</h4>
+                        <pre><code>- id
+- name
+- sector
+- template (FK Template)
+- logo
+- settings (JSON)
+- created_at
+- updated_at</code></pre>
+                        
+                        <h4>User (Utilisateur)</h4>
+                        <pre><code>- id
+- email
+- password_hash
+- first_name
+- last_name
+- role
+- status
+- created_at
+- last_login</code></pre>
+                        
+                        <h4>Employee (Employé)</h4>
+                        <pre><code>- id
+- user (FK User)
+- company (FK Company)
+- office (FK Office)
+- department
+- position
+- salary
+- hire_date
+- status
+- permissions (JSON)</code></pre>
+                        
+                        <h4>Office (Bureau)</h4>
+                        <pre><code>- id
+- name
+- type
+- company (FK Company)
+- employee (FK Employee)
+- features (JSON)
+- settings (JSON)</code></pre>
+                        
+                        <h4>Template (Template)</h4>
+                        <pre><code>- id
+- name
+- sector
+- description
+- offices_config (JSON)
+- spaces_config (JSON)
+- permissions_config (JSON)
+- is_active
+- created_at</code></pre>
+                        
+                        <h3>Relations Principales</h3>
+                        <pre><code>Company
+├── has_many Employees
+├── has_many Offices
+├── has_many Projects
+├── has_many Documents
+├── belongs_to Template
+└── has_one Wallet
+
+Employee
+├── belongs_to User
+├── belongs_to Company
+├── belongs_to Office
+└── has_many Tasks
+
+Template
+├── has_many Companies (using this template)
+└── has_many TemplateModules</code></pre>
+                    </section>
+
+                    <section id="securite-et-permissions">
+                        <h2>🔒 Sécurité et Permissions</h2>
+                        
+                        <h3>Système d'Authentification</h3>
+                        <ul>
+                            <li><strong>JWT</strong> : Tokens pour l'authentification API</li>
+                            <li><strong>Sessions</strong> : Authentification web classique</li>
+                            <li><strong>2FA</strong> : Authentification à deux facteurs (optionnel)</li>
+                            <li><strong>OAuth</strong> : Connexion via Google, Microsoft (optionnel)</li>
+                        </ul>
+                        
+                        <h3>Système de Permissions</h3>
+                        <h4>Niveaux de Permission</h4>
+                        <ol>
+                            <li><strong>Super Admin</strong> : Accès à toute la plateforme (gestion des templates)</li>
+                            <li><strong>Company Admin (CEO)</strong> : Accès complet à son entreprise</li>
+                            <li><strong>Employee</strong> : Accès selon son rôle et bureau assigné</li>
+                            <li><strong>Guest</strong> : Accès limité (démo uniquement)</li>
+                        </ol>
+                        
+                        <h4>RBAC (Role-Based Access Control)</h4>
+                        <pre><code># Exemple de permissions
+PERMISSIONS = {
+    'ceo': {
+        'offices': ['read', 'write', 'delete'],
+        'employees': ['read', 'write', 'delete'],
+        'finances': ['read', 'write'],
+        'projects': ['read', 'write', 'delete'],
+    },
+    'developer': {
+        'offices': ['read'],  # Son bureau uniquement
+        'tasks': ['read', 'write'],
+        'projects': ['read', 'write'],
+    },
+    'accountant': {
+        'offices': ['read'],
+        'finances': ['read', 'write'],
+        'employees': ['read'],  # Pour les salaires
+    },
+}</code></pre>
+                        
+                        <h3>Isolation Multi-Tenant</h3>
+                        <ul>
+                            <li><strong>Données isolées</strong> : Chaque entreprise ne voit que ses données</li>
+                            <li><strong>Requêtes filtrées</strong> : Toutes les requêtes incluent <code>company_id</code></li>
+                            <li><strong>Middleware</strong> : Vérification automatique de l'appartenance</li>
+                        </ul>
+                        <pre><code># Exemple de middleware
+class CompanyMiddleware:
+    def process_request(self, request):
+        if request.user.is_authenticated:
+            request.company = request.user.employee.company
+            # Toutes les requêtes suivantes sont filtrées par company</code></pre>
+                    </section>
+
+                    <section id="integrations">
+                        <h2>🔌 Intégrations</h2>
+                        
+                        <h3>Architecture d'Intégration</h3>
+                        <pre><code>Plateforme
+    │
+    ├── API Gateway
+    │   │
+    │   ├── E-commerce Platform API
+    │   ├── Cours Platform API
+    │   ├── Recrutement Platform API
+    │   └── Autres APIs externes
+    │
+    └── Webhooks
+        ├── Réception d'événements
+        └── Traitement asynchrone</code></pre>
+                        
+                        <h3>Types d'Intégrations</h3>
+                        <h4>1. Intégrations API (Pull)</h4>
+                        <ul>
+                            <li><strong>Fréquence</strong> : Toutes les 5-15 minutes</li>
+                            <li><strong>Méthode</strong> : Requêtes API périodiques</li>
+                            <li><strong>Données</strong> : Commandes, utilisateurs, statistiques</li>
+                        </ul>
+                        
+                        <h4>2. Webhooks (Push)</h4>
+                        <ul>
+                            <li><strong>Méthode</strong> : Réception d'événements en temps réel</li>
+                            <li><strong>Données</strong> : Événements importants (nouvelle commande, nouvel utilisateur)</li>
+                        </ul>
+                        
+                        <h4>3. Synchronisation Bidirectionnelle</h4>
+                        <ul>
+                            <li><strong>Méthode</strong> : Échange de données dans les deux sens</li>
+                            <li><strong>Cas d'usage</strong> : Mise à jour de statuts, modifications</li>
+                        </ul>
+                        
+                        <h3>Configuration d'Intégration</h3>
+                        <pre><code># apps/integrations/models.py
+
+class Integration(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    platform_type = models.CharField(max_length=50)  # 'ecommerce', 'cours', 'recrutement'
+    api_key = models.CharField(max_length=255)
+    api_secret = models.CharField(max_length=255)
+    webhook_url = models.URLField()
+    status = models.CharField(max_length=20)  # 'active', 'inactive', 'error'
+    last_sync = models.DateTimeField(null=True)
+    sync_frequency = models.IntegerField(default=300)  # secondes
+    config = models.JSONField()  # Configuration spécifique</code></pre>
+                    </section>
+
+                    <section id="modele-economique">
+                        <h2>💰 Modèle Économique</h2>
+                        
+                        <h3>Options de Monétisation</h3>
+                        <h4>1. Abonnement par Entreprise</h4>
+                        <ul>
+                            <li><strong>Gratuit</strong> : Fonctionnalités de base, nombre limité d'employés</li>
+                            <li><strong>Premium</strong> : Fonctionnalités avancées, employés illimités</li>
+                            <li><strong>Enterprise</strong> : Personnalisation, support prioritaire</li>
+                        </ul>
+                        
+                        <h4>2. Commission sur Transactions</h4>
+                        <ul>
+                            <li>Pourcentage sur les transactions financières</li>
+                            <li>Applicable selon le template (e-commerce, cours, etc.)</li>
+                        </ul>
+                        
+                        <h4>3. Frais de Personnalisation</h4>
+                        <ul>
+                            <li>Création de nouveaux templates sur mesure</li>
+                            <li>Développement de fonctionnalités spécifiques</li>
+                        </ul>
+                        
+                        <h3>Structure Tarifaire (Exemple)</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Plan</th>
+                                    <th>Prix/mois</th>
+                                    <th>Employés</th>
+                                    <th>Fonctionnalités</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Gratuit</strong></td>
+                                    <td>0€</td>
+                                    <td>1-3</td>
+                                    <td>De base</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Starter</strong></td>
+                                    <td>29€</td>
+                                    <td>4-10</td>
+                                    <td>Standard</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Professional</strong></td>
+                                    <td>79€</td>
+                                    <td>11-50</td>
+                                    <td>Avancées</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Enterprise</strong></td>
+                                    <td>Sur mesure</td>
+                                    <td>Illimité</td>
+                                    <td>Personnalisé</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="processus-de-creation-entreprise">
+                        <h2>🚀 Processus de Création d'Entreprise</h2>
+                        
+                        <h3>Parcours Utilisateur</h3>
+                        <h4>Étape 1 : Découverte</h4>
+                        <ol>
+                            <li>L'utilisateur arrive sur la plateforme</li>
+                            <li>Il découvre les templates disponibles</li>
+                            <li>Il peut filtrer par secteur, taille, fonctionnalités</li>
+                        </ol>
+                        
+                        <h4>Étape 2 : Démo</h4>
+                        <ol>
+                            <li>Clic sur "Voir la démo" d'un template</li>
+                            <li>Visite virtuelle de l'entreprise type</li>
+                            <li>Exploration des bureaux et fonctionnalités</li>
+                            <li>Compréhension de l'organisation</li>
+                        </ol>
+                        
+                        <h4>Étape 3 : Choix</h4>
+                        <ul>
+                            <li><strong>Option A</strong> : Le template convient → Création directe</li>
+                            <li><strong>Option B</strong> : Le template ne convient pas → Demande de personnalisation</li>
+                        </ul>
+                        
+                        <h4>Étape 4 : Création</h4>
+                        <ol>
+                            <li>Inscription / Connexion</li>
+                            <li>Formulaire de création d'entreprise :
+                                <ul>
+                                    <li>Nom de l'entreprise</li>
+                                    <li>Secteur</li>
+                                    <li>Logo</li>
+                                    <li>Informations de base</li>
+                                </ul>
+                            </li>
+                            <li>Choix du template</li>
+                            <li>Configuration initiale :
+                                <ul>
+                                    <li>Ajout des premiers employés</li>
+                                    <li>Configuration des bureaux</li>
+                                    <li>Paramètres de base</li>
+                                </ul>
+                            </li>
+                            <li>Activation de l'entreprise</li>
+                        </ol>
+                        
+                        <h4>Étape 5 : Utilisation</h4>
+                        <ul>
+                            <li>Accès à l'espace interne</li>
+                            <li>Configuration complète</li>
+                            <li>Ajout d'employés</li>
+                            <li>Début de l'utilisation</li>
+                        </ul>
+                        
+                        <h3>Flux de Données - Création d'Entreprise</h3>
+                        <pre><code>Utilisateur
+    │
+    │ 1. Inscription
+    ▼
+Système d'Authentification
+    │
+    │ 2. Création entreprise
+    ▼
+Service Entreprise
+    │
+    │ 3. Sélection template
+    ▼
+Service Template
+    │
+    │ 4. Duplication configuration
+    ▼
+Base de Données
+    │
+    │ 5. Création structure
+    │   - Entreprise
+    │   - Bureaux
+    │   - Espaces
+    │   - Permissions
+    ▼
+Espace Entreprise (Actif)</code></pre>
+                        
+                        <h3>Processus de Création d'un Nouveau Template</h3>
+                        <ol>
+                            <li><strong>Demande client</strong> : Une entreprise contacte pour un nouveau type</li>
+                            <li><strong>Analyse des besoins</strong> :
+                                <ul>
+                                    <li>Secteur d'activité</li>
+                                    <li>Bureaux nécessaires</li>
+                                    <li>Organisation souhaitée</li>
+                                    <li>Fonctionnalités spécifiques</li>
+                                </ul>
+                            </li>
+                            <li><strong>Développement</strong> :
+                                <ul>
+                                    <li>Réutilisation du code base existant</li>
+                                    <li>Adaptation et personnalisation</li>
+                                    <li>Création des modules spécifiques</li>
+                                </ul>
+                            </li>
+                            <li><strong>Intégration</strong> :
+                                <ul>
+                                    <li>Ajout du template à la plateforme</li>
+                                    <li>Création de la démo</li>
+                                    <li>Documentation</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disponibilité</strong> : Le template devient accessible à tous</li>
+                        </ol>
+                    </section>
+
+                    <section id="technologies">
+                        <h2>🛠️ Technologies Utilisées</h2>
+                        
+                        <h3>Backend</h3>
+                        <ul>
+                            <li><strong>Django</strong> 4.2+ : Framework web principal</li>
+                            <li><strong>Django REST Framework</strong> : APIs REST</li>
+                            <li><strong>Django Channels</strong> : WebSockets pour temps réel</li>
+                            <li><strong>Celery</strong> : Tâches asynchrones</li>
+                            <li><strong>Redis</strong> : Cache et backend Channels</li>
+                            <li><strong>PostgreSQL</strong> : Base de données principale</li>
+                        </ul>
+                        
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li><strong>Django Templates</strong> : Rendu côté serveur</li>
+                            <li><strong>HTML5/CSS3</strong> : Structure et style</li>
+                            <li><strong>Tailwind CSS</strong> : Framework CSS utilitaire</li>
+                            <li><strong>JavaScript (ES6+)</strong> : Interactivité</li>
+                            <li><strong>WebSockets</strong> : Communication temps réel</li>
+                            <li><strong>HTMX</strong> (optionnel) : Interactions AJAX simplifiées</li>
+                        </ul>
+                        
+                        <h3>Infrastructure</h3>
+                        <ul>
+                            <li><strong>Docker</strong> : Containerisation</li>
+                            <li><strong>Docker Compose</strong> : Orchestration locale</li>
+                            <li><strong>Nginx</strong> : Serveur web reverse proxy</li>
+                            <li><strong>Gunicorn</strong> : Serveur WSGI</li>
+                            <li><strong>AWS/Azure/VPS</strong> : Hébergement</li>
+                        </ul>
+                        
+                        <h3>Outils de Développement</h3>
+                        <ul>
+                            <li><strong>Git</strong> : Contrôle de version</li>
+                            <li><strong>GitHub Actions</strong> : CI/CD</li>
+                            <li><strong>Black</strong> : Formatage de code Python</li>
+                            <li><strong>Pytest</strong> : Tests</li>
+                            <li><strong>Postman</strong> : Tests API</li>
+                        </ul>
+                    </section>
+
+                    <section id="roadmap">
+                        <h2>🗺️ Roadmap de Développement</h2>
+                        
+                        <h3>Phase 1 : MVP - Template Dily (3-4 mois)</h3>
+                        <h4>Sprint 1-2 : Fondations</h4>
+                        <ul>
+                            <li>Configuration Django de base</li>
+                            <li>Système d'authentification</li>
+                            <li>Modèles de données de base</li>
+                            <li>Interface de base</li>
+                        </ul>
+                        
+                        <h4>Sprint 3-4 : Template Dily</h4>
+                        <ul>
+                            <li>Développement du template Dily complet</li>
+                            <li>Tous les bureaux Dily</li>
+                            <li>Espaces communs</li>
+                            <li>Intégrations avec plateformes Dily</li>
+                        </ul>
+                        
+                        <h4>Sprint 5-6 : Fonctionnalités Core</h4>
+                        <ul>
+                            <li>Gestion des employés</li>
+                            <li>Gestion des projets et tâches</li>
+                            <li>Communication</li>
+                            <li>Finances de base</li>
+                        </ul>
+                        
+                        <h4>Sprint 7-8 : Polissage</h4>
+                        <ul>
+                            <li>Tests</li>
+                            <li>Optimisations</li>
+                            <li>Documentation</li>
+                            <li>Déploiement</li>
+                        </ul>
+                        
+                        <h3>Phase 2 : Système de Templates (2-3 mois)</h3>
+                        <h4>Sprint 9-10 : Architecture Templates</h4>
+                        <ul>
+                            <li>Modèle de données Template</li>
+                            <li>Service de duplication</li>
+                            <li>Système de configuration</li>
+                        </ul>
+                        
+                        <h4>Sprint 11-12 : Hub et Démo</h4>
+                        <ul>
+                            <li>Interface Hub (Marketplace)</li>
+                            <li>Système de démo</li>
+                            <li>Processus de création d'entreprise</li>
+                        </ul>
+                        
+                        <h3>Phase 3 : Deuxième Template (1-2 mois)</h3>
+                        <h4>Sprint 13-14 : Template Audit</h4>
+                        <ul>
+                            <li>Analyse des besoins</li>
+                            <li>Développement</li>
+                            <li>Intégration dans la plateforme</li>
+                        </ul>
+                        
+                        <h3>Phase 4 : Améliorations et Scaling (Continue)</h3>
+                        <ul>
+                            <li>Optimisations de performance</li>
+                            <li>Nouvelles fonctionnalités</li>
+                            <li>Nouveaux templates</li>
+                            <li>Amélioration UX/UI</li>
+                        </ul>
+                    </section>
+
+                    <section id="deploiement">
+                        <h2>🚀 Déploiement et Infrastructure</h2>
+                        
+                        <h3>Architecture de Déploiement</h3>
+                        <pre><code>Internet
+    │
+    ▼
+Load Balancer (Nginx)
+    │
+    ├─── App Server 1 (Django + Gunicorn)
+    ├─── App Server 2 (Django + Gunicorn)
+    └─── App Server N (Scalabilité horizontale)
+            │
+            ├─── PostgreSQL (Master-Slave)
+            ├─── Redis (Cluster)
+            └─── Celery Workers
+                    │
+                    └─── File Storage (S3/MinIO)</code></pre>
+                        
+                        <h3>Configuration Production</h3>
+                        <h4>Variables d'Environnement</h4>
+                        <pre><code># Database
+DATABASE_URL=postgresql://user:pass@host:5432/dbname
+
+# Redis
+REDIS_URL=redis://host:6379/0
+
+# Security
+SECRET_KEY=your-secret-key
+DEBUG=False
+ALLOWED_HOSTS=yourdomain.com
+
+# AWS (si utilisé)
+AWS_ACCESS_KEY_ID=your-key
+AWS_SECRET_ACCESS_KEY=your-secret
+AWS_STORAGE_BUCKET_NAME=your-bucket</code></pre>
+                        
+                        <h4>Docker Compose (Production)</h4>
+                        <pre><code>version: '3.8'
+
+services:
+  web:
+    build: .
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgresql://...
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+
+  celery:
+    build: .
+    command: celery -A config worker -l info
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  postgres_data:</code></pre>
+                        
+                        <h3>Monitoring</h3>
+                        <ul>
+                            <li><strong>Application</strong> : Sentry pour les erreurs</li>
+                            <li><strong>Performance</strong> : New Relic ou Datadog</li>
+                            <li><strong>Logs</strong> : ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+                            <li><strong>Métriques</strong> : Prometheus + Grafana</li>
+                        </ul>
+                    </section>
+
+                    <section id="instructions-developpement">
+                        <h2>📝 Instructions de Développement</h2>
+                        
+                        <h3>Prérequis</h3>
+                        <ul>
+                            <li>Python 3.10+</li>
+                            <li>PostgreSQL 14+</li>
+                            <li>Redis 7+</li>
+                            <li>Node.js 18+ (pour assets frontend)</li>
+                            <li>Docker (optionnel mais recommandé)</li>
+                        </ul>
+                        
+                        <h3>Installation Locale</h3>
+                        <pre><code># 1. Cloner le repository
+git clone &lt;repository-url&gt;
+cd platform
+
+# 2. Créer un environnement virtuel
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# ou
+venv\Scripts\activate  # Windows
+
+# 3. Installer les dépendances
+pip install -r requirements.txt
+
+# 4. Configurer la base de données
+python manage.py migrate
+
+# 5. Créer un superutilisateur
+python manage.py createsuperuser
+
+# 6. Lancer le serveur de développement
+python manage.py runserver</code></pre>
+                        
+                        <h3>Structure des Commits</h3>
+                        <pre><code>feat: Ajout du système de templates
+fix: Correction bug authentification
+docs: Mise à jour documentation
+refactor: Refactoring service intégrations
+test: Ajout tests unitaires</code></pre>
+                        
+                        <h3>Tests</h3>
+                        <pre><code># Lancer tous les tests
+python manage.py test
+
+# Tests avec couverture
+coverage run --source='.' manage.py test
+coverage report</code></pre>
+                    </section>
+
+                    <section id="contribution">
+                        <h2>🤝 Contribution</h2>
+                        
+                        <h3>Processus</h3>
+                        <ol>
+                            <li><strong>Fork</strong> le projet</li>
+                            <li><strong>Créer</strong> une branche feature (<code>git checkout -b feature/AmazingFeature</code>)</li>
+                            <li><strong>Commit</strong> les changements (<code>git commit -m 'feat: Add AmazingFeature'</code>)</li>
+                            <li><strong>Push</strong> vers la branche (<code>git push origin feature/AmazingFeature</code>)</li>
+                            <li><strong>Ouvrir</strong> une Pull Request</li>
+                        </ol>
+                        
+                        <h3>Standards de Code</h3>
+                        <ul>
+                            <li><strong>Python</strong> : PEP 8</li>
+                            <li><strong>JavaScript</strong> : ESLint</li>
+                            <li><strong>Tests</strong> : Minimum 80% de couverture</li>
+                            <li><strong>Documentation</strong> : Docstrings pour toutes les fonctions</li>
+                        </ul>
+                    </section>
+
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+                        <p><strong>Note</strong> : Cette documentation est complète et à jour. Pour consulter la version Markdown, voir le fichier README.md dans le repository.</p>
+                        <p style="margin-top: 1rem;">
+                            <a href="../README.md" target="_blank" style="color: var(--primary-color);">
+                                <i class="fas fa-file-alt"></i> Voir le README complet (Markdown)
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dily - Documentation Plateforme. Tous droits réservés.</p>
+            <p class="footer-links">
+                <a href="https://github.com" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+
