@@ -1286,6 +1286,7 @@ body {
     top: var(--spacing-5);
     right: var(--spacing-5);
     background: rgba(99, 102, 241, 0.9);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: white;
     border: none;
@@ -1400,6 +1401,7 @@ mark.highlight {
         top: 70px;
         flex-direction: column;
         background: rgba(255, 255, 255, 0.98);
+        -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
@@ -1538,6 +1540,33 @@ mark.highlight {
 
 .pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================
+   DOCUMENTATION FOOTER NOTE
+   ============================================ */
+.doc-note {
+    margin-top: var(--spacing-12);
+    padding-top: var(--spacing-8);
+    border-top: 2px solid var(--border-color);
+}
+
+.doc-note p {
+    margin-bottom: var(--spacing-4);
+}
+
+.doc-note-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.doc-note-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 /* ============================================
